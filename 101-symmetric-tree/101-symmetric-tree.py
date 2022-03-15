@@ -6,24 +6,15 @@
 #         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        if root == None:
+        return self.check_children(root.left, root.right)
+        
+    def check_children(self, root1, root2):
+        if not root1 and not root2:
             return True
-
-        stack = list()
-        stack.append((root.left, root.right))
-        
-        while stack:
-            ltree, rtree = stack.pop()
-            if ltree == None and rtree != None:
-                return False
-            if rtree == None and ltree != None:
-                return False
-            if ltree == None and rtree == None:
-                continue
-            if ltree.val != rtree.val:
-                return False
-            stack.append((ltree.left, rtree.right))
-            stack.append((ltree.right, rtree.left))
-        
-        return True
+        if (root1 and not root2) or (root2 and not root1):
+            return False
+        if root1.val != root2.val:
+            return False
+        else:
+            return self.check_children(root1.left, root2.right) and self.check_children(root1.right, root2.left)
         
