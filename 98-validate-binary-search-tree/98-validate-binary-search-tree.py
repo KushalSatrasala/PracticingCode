@@ -20,7 +20,6 @@ class Solution:
                 stack.append((node, True))
                 stack.append((node.left, False))
             else:
-                print(prev, node.val)
                 if prev != None and prev >= node.val:
                     return False
                 prev = node.val
