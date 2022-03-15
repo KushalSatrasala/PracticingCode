@@ -19,7 +19,6 @@ class Solution:
                 continue
             if ltree.val != rtree.val:
                 return False
-
             stack.append((ltree.left, rtree.right))
             stack.append((ltree.right, rtree.left))
         
