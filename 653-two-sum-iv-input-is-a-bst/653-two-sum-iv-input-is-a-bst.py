@@ -6,30 +6,16 @@
 #         self.right = right
 class Solution:
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
-        def find_elem(root, val, node):
-            if root == None:
-                return False
-            elif root.val == val and root != node:
-                return True
-            elif root.val > val:
-                return find_elem(root.left, val, node)
-            else:
-                return find_elem(root.right, val, node)
-        
+        diff_set = set()        
         stack = list()
         stack.append(root)
         while stack:
             cur_node = stack.pop()
-            if cur_node == None:
-                continue
-            target = k - cur_node.val
-            print(target)
-            if find_elem(root, target, cur_node):
+            if (k - cur_node.val) in diff_set:
                 return True
-            stack.append(cur_node.left)
-            stack.append(cur_node.right)
-        
+            diff_set.add(cur_node.val)
+            if cur_node.left:
+                stack.append(cur_node.left)
+            if cur_node.right:
+                stack.append(cur_node.right)
         return False
-        
-            
-        
