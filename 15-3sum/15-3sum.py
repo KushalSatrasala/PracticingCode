@@ -1,25 +1,22 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums = sorted(nums)
         num_indx = dict()
         for idx, num in enumerate(nums):
-            if num not in num_indx:
-                num_indx[num] = list()
-            num_indx[num].append(idx)
+            num_indx[num] = idx
         
         arrLen = len(nums)
         i = 0
         res_list = set()
         while i < arrLen:
-            j = i + 1
-            while j < arrLen:
-                diff = 0 - (nums[i] + nums[j])
-                if diff in num_indx:
-                    for idx in num_indx[diff]:
-                        if idx != i and idx != j:
-                            tpl = tuple(sorted([nums[i], nums[j], nums[idx]]))
-                            if tpl not in res_list:
-                                res_list.add(tpl)
-                            break
+            if i != 0 and nums[i] == nums[i - 1]:
+                i += 1
+                continue
+            twoSum = -nums[i]
+            for j in range(i+1,len(nums)):
+                target = twoSum - nums[j]
+                if target in num_indx and num_indx[target] > j:
+                    res_list.add((-twoSum,nums[j],target))
                 j += 1
             i += 1
         
