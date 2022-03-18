@@ -12,7 +12,6 @@ class Solution:
         bottom = n - 1
         
         while left < right:
-            
             k = 0
             while k < (right - left):
                 temp = matrix[top][left + k]
@@ -20,13 +19,8 @@ class Solution:
                 matrix[bottom - k][left] = matrix[bottom][right - k]
                 matrix[bottom][right - k] = matrix[top + k][right]
                 matrix[top + k][right] = temp
-                k += 1
-            
-            print(matrix)
-            
+                k += 1         
             left += 1
             right -= 1
             top += 1
             bottom -= 1
-            
-            print(left, right, top, bottom)
