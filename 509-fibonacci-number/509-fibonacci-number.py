@@ -1,12 +1,13 @@
 class Solution:
     def fib(self, n: int) -> int:
-        res_list = list()
-        res_list.append(0)
-        res_list.append(1)
+        if n == 0:
+            return 0
+        elif n == 1:
+            return 1
         
-        i = 2
-        while i <= n:
-            res_list.append(res_list[i - 1] + res_list[i - 2])
-            i += 1
-        
-        return res_list[n]
+        a,b = 0,1
+        for i in range(n-1):
+            result = a+b
+            a = b
+            b = result
+        return result
