@@ -1,6 +1,5 @@
 class Solution:
     def divisorGame(self, n: int) -> bool:
-        
         dp_map = [False for _ in range( n+1 )]
         dp_map[1] = False
         i = 2
