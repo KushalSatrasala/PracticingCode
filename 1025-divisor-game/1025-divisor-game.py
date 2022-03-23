@@ -12,7 +12,5 @@ class Solution:
                     break
                 j += 1
             i += 1
-        
-        print(dp_map)
         return dp_map[n]
         
