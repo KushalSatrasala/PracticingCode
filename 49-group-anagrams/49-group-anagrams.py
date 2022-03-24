@@ -10,7 +10,4 @@ class Solution:
         
         res_list = list()
         
-        for key in map_dict.keys():
-            res_list.append(map_dict[key])
-        
-        return res_list
+        return map_dict.values()
