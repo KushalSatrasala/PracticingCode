@@ -21,4 +21,3 @@ class Solution:
             i += 1
         
         return res_list
-        
