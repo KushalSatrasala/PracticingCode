@@ -8,9 +8,10 @@ class Solution:
     def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
         
         def createTree(nums):
-            if len(nums) == 1:
+            slen = len(nums)
+            if slen == 1:
                 return TreeNode(nums[0])
-            if len(nums) == 0:
+            if slen == 0:
                 return None
             
             max_val = max(nums)
