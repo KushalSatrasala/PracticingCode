@@ -28,6 +28,4 @@ class Solution:
                             add_val += dp[i + 2]
                 dp[i] = add_val
                 i -= 1
-        
-        print(dp)
         return dp[0]
