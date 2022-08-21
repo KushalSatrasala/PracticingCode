@@ -42,7 +42,7 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
-        if data == "None" or "" or len(data) == 0:
+        if data == "" or len(data) == 0:
             return None
         node_list = data.split(";")
         slen = len(node_list)
