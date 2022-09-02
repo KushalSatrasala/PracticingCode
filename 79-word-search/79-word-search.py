@@ -3,6 +3,23 @@ class Solution:
         dp_map = dict()
         m = len(board)
         n = len(board[0])
+        word_dict = dict()
+        board_dict = dict()
+        
+        for i in range(m):
+            for j in range(n):
+                board_dict[board[i][j]] = board_dict.get(board[i][j], 0) + 1
+        
+        for ch in word:
+            word_dict[ch] = word_dict.get(ch, 0) + 1
+        
+        for ch in word_dict.keys():
+            if board_dict.get(ch, 0) < word_dict[ch]:
+                return False
+        
+        if word_dict[word[0]] > word_dict[word[-1]]:
+            word = word[::-1]
+        
         def travel_thru(row, col, board, word, i):
             if row < 0 or row >= m or col < 0 or col >= n or board[row][col] != word[i]:
                 return False
