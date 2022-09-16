@@ -1,7 +1,6 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = s.lower()
-        s = s.replace(" ", "")
         i = 0 
         j = len(s) -1
         if j < 0:
